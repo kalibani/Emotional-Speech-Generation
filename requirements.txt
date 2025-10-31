@@ -1,0 +1,28 @@
+# Core API
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+python-multipart==0.0.6
+
+# Configuration
+pyyaml==6.0.1
+
+# Audio Processing
+numpy==1.24.0
+scipy==1.11.0
+soundfile==0.12.1
+librosa==0.10.1
+
+# TTS Models
+torch==2.1.0
+torchaudio==2.1.0
+TTS==0.22.0
+
+# HTTP & File I/O
+httpx==0.25.0
+aiofiles==23.2.1
+
+# Utilities
+python-dotenv==1.0.0
+

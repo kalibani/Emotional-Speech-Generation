@@ -1,0 +1,106 @@
+# Emotion configurations for documentary narration
+emotions:
+  neutral:
+    name: "Neutral"
+    description: "Standard documentary narration tone - balanced and informative"
+    recommended_intensity: 0.5
+    use_cases:
+      - "factual information"
+      - "introductions"
+      - "transitions"
+    prosody:
+      pitch_scale: 1.0
+      energy_scale: 1.0
+      tempo_scale: 1.0
+
+  excited:
+    name: "Excited"
+    description: "Enthusiastic discovery or wonder - perfect for revelations"
+    recommended_intensity: 0.7
+    use_cases:
+      - "new discoveries"
+      - "amazing facts"
+      - "revelations"
+    prosody:
+      pitch_scale: 1.15
+      energy_scale: 1.25
+      tempo_scale: 1.1
+
+  sad:
+    name: "Sad"
+    description: "Somber or melancholic tone - for tragic or serious content"
+    recommended_intensity: 0.6
+    use_cases:
+      - "tragic events"
+      - "loss"
+      - "difficult truths"
+    prosody:
+      pitch_scale: 0.90
+      energy_scale: 0.75
+      tempo_scale: 0.85
+
+  serious:
+    name: "Serious"
+    description: "Grave and authoritative tone - for important information"
+    recommended_intensity: 0.6
+    use_cases:
+      - "critical information"
+      - "warnings"
+      - "formal content"
+    prosody:
+      pitch_scale: 0.95
+      energy_scale: 1.1
+      tempo_scale: 0.9
+
+  empathetic:
+    name: "Empathetic"
+    description: "Warm and understanding tone - for emotional connection"
+    recommended_intensity: 0.65
+    use_cases:
+      - "human stories"
+      - "emotional moments"
+      - "personal narratives"
+    prosody:
+      pitch_scale: 1.0
+      energy_scale: 0.9
+      tempo_scale: 0.95
+
+  urgent:
+    name: "Urgent"
+    description: "Intense and pressing tone - for dramatic moments"
+    recommended_intensity: 0.75
+    use_cases:
+      - "dramatic events"
+      - "time-sensitive information"
+      - "climactic moments"
+    prosody:
+      pitch_scale: 1.1
+      energy_scale: 1.3
+      tempo_scale: 1.2
+
+# Voice presets for different documentary styles
+voices:
+  default_documentary:
+    name: "Default Documentary"
+    description: "Standard BBC/PBS style narrator"
+    characteristics:
+      - "clear articulation"
+      - "moderate pace"
+      - "professional tone"
+
+  nature_documentary:
+    name: "Nature Documentary"
+    description: "David Attenborough style - warm and engaging"
+    characteristics:
+      - "warm timbre"
+      - "expressive prosody"
+      - "gentle pacing"
+
+  science_documentary:
+    name: "Science Documentary"
+    description: "Scientific precision with enthusiasm"
+    characteristics:
+      - "clear and precise"
+      - "enthusiastic delivery"
+      - "moderate to fast pace"
+
