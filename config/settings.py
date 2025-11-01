@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     api_key: str | None = Field(default=None)
 
     # TTS Model
-    model_name: Literal["chatterbox", "coqui", "bark"] = Field(default="coqui")
+    model_name: Literal["chatterbox", "coqui", "bark"] = Field(default="chatterbox")
     model_cache_dir: str = Field(default="data/models")
     device: Literal["cuda", "cpu", "mps"] = Field(default="cpu")
 

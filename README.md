@@ -6,7 +6,7 @@
 
 **Production-ready emotional text-to-speech system for documentary-style narration.**
 
-Think of it as: *"Suno AI, but instead of songs it produces natural, emotionally expressive narration."*
+Think of it as: _"Suno AI, but instead of songs it produces natural, emotionally expressive narration."_
 
 ---
 
@@ -39,16 +39,20 @@ Think of it as: *"Suno AI, but instead of songs it produces natural, emotionally
 
 ## 🚀 Quick Start
 
-### **Option 1: CLI (Part B Solution)**
+### **Option 1: CLI (Part B Solution)** - Recommended
 
 ```bash
-# Install dependencies
+# 1. Create virtual environment (recommended to avoid conflicts)
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# 2. Upgrade pip
+pip install --upgrade pip
+
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# Run setup
-python scripts/setup_models.py
-
-# Generate speech
+# 4. Generate speech! (models download automatically on first run)
 python scripts/solution.py "Hello world" output.wav
 
 # With emotion
@@ -105,22 +109,22 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 ### **Step 3: Install Dependencies**
 
 ```bash
+# Install all dependencies
 pip install -r requirements.txt
 
-# For development
+# For development (includes testing tools)
 pip install -r requirements-dev.txt
 ```
 
-### **Step 4: Setup Models**
+### **Step 4: Run the CLI**
 
 ```bash
-python scripts/setup_models.py
-```
+# Generate speech (models download automatically on first run)
+python scripts/solution.py "Hello world" output.wav
 
-This will:
-- Create necessary directories
-- Download TTS models (~500MB)
-- Run a test synthesis
+# Models will be downloaded to ~/.cache/ on first use
+# Subsequent runs will be faster
+```
 
 ---
 
@@ -205,18 +209,19 @@ curl http://localhost:8000/audio/<job_id>.wav --output narration.wav
 
 ### **Endpoints**
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/v1/health` | Health check |
-| `GET` | `/v1/health/ready` | Readiness check |
-| `GET` | `/v1/emotions` | List all emotions |
-| `GET` | `/v1/emotions/{id}` | Get emotion details |
-| `POST` | `/v1/speech/synthesize` | Generate speech |
-| `GET` | `/audio/{filename}` | Download audio file |
+| Method | Endpoint                | Description         |
+| ------ | ----------------------- | ------------------- |
+| `GET`  | `/v1/health`            | Health check        |
+| `GET`  | `/v1/health/ready`      | Readiness check     |
+| `GET`  | `/v1/emotions`          | List all emotions   |
+| `GET`  | `/v1/emotions/{id}`     | Get emotion details |
+| `POST` | `/v1/speech/synthesize` | Generate speech     |
+| `GET`  | `/audio/{filename}`     | Download audio file |
 
 ### **Interactive Documentation**
 
 Once the API is running:
+
 - **Swagger UI**: http://localhost:8000/docs
 - **ReDoc**: http://localhost:8000/redoc
 
@@ -415,12 +420,88 @@ For detailed deployment guide, see [Deployment Documentation](docs/deployment.md
 
 ---
 
-## 📖 Additional Documentation
+## 🐛 Troubleshooting
 
-- **[System Design (Part A)](DESIGN.md)** - Complete system design document
-- **[Architecture Guide](docs/architecture.md)** - Detailed architecture
-- **[API Reference](docs/api.md)** - Complete API documentation
-- **[Deployment Guide](docs/deployment.md)** - Production deployment
+### **Common Issues**
+
+#### **1. Stuck in Quote Prompt (`dquote>`)**
+
+**Problem:** Terminal shows `dquote>` and waits for input
+
+```bash
+python scripts/solution.py "This is amazing!" output.wav
+dquote>
+```
+
+**Cause:** You're using **smart quotes** `"` `"` (curly quotes) instead of **straight quotes** `" "`
+
+**Solution:**
+
+- Press `Ctrl + C` to exit
+- **Type the command manually** using the quote key on your keyboard (don't copy/paste from formatted documents)
+- OR copy from terminal/plain text editor only
+
+```bash
+# ✅ CORRECT (straight quotes)
+python scripts/solution.py "Hello world" output.wav
+
+# ❌ WRONG (smart/curly quotes from Word/Pages/websites)
+python scripts/solution.py "Hello world" output.wav
+```
+
+---
+
+#### **2. Protobuf Version Error**
+
+**Problem:** `AttributeError: 'MessageFactory' object has no attribute 'GetPrototype'`
+
+**Solution:**
+
+```bash
+# Downgrade protobuf
+pip install "protobuf<5.0,>=3.20.3"
+
+# OR better: use clean virtual environment
+python3 -m venv venv-clean
+source venv-clean/bin/activate
+pip install -r requirements.txt
+```
+
+---
+
+#### **3. Module Not Found Errors**
+
+**Problem:** `ModuleNotFoundError: No module named 'chatterbox'`
+
+**Solution:**
+
+```bash
+# Ensure virtual environment is activated
+source venv/bin/activate
+
+# Reinstall dependencies
+pip install -r requirements.txt
+```
+
+---
+
+#### **4. Dependency Conflicts**
+
+**Problem:** Seeing many dependency warnings during installation
+
+**Cause:** Other packages installed globally (tensorflow, facenet, etc.)
+
+**Solution:** Use a **clean virtual environment** (recommended):
+
+```bash
+# Create isolated environment
+python3 -m venv venv-tts
+source venv-tts/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+**Note:** Dependency warnings for packages our project doesn't use (like tensorflow) won't affect functionality.
 
 ---
 
@@ -429,11 +510,13 @@ For detailed deployment guide, see [Deployment Documentation](docs/deployment.md
 The CLI solution (`scripts/solution.py`) fulfills all Part B requirements:
 
 ✅ **Required Functionality:**
+
 - Input: text string
 - Output: `.wav` file with synthesized speech
 - Runnable via: `python scripts/solution.py "Hello world" hello.wav`
 
 ✅ **Bonus Features:**
+
 - ✅ Support for 6 different emotional styles
 - ✅ Intensity control for fine-tuning
 - ✅ Comprehensive error handling
@@ -441,13 +524,14 @@ The CLI solution (`scripts/solution.py`) fulfills all Part B requirements:
 - ✅ Help documentation (`--help`)
 - ✅ Progress indicators
 
-### **Why Coqui TTS?**
+### **Why Chatterbox?**
 
-- **Open-source** and production-ready
-- **High quality** voice synthesis
+- **Best Quality**: Outperformed ElevenLabs in blind tests (63.8% preference)
+- **True Emotion Control**: Built-in emotion intensity via exaggeration parameter
+- **Open-source**: MIT licensed, production-ready
+- **Multi-device**: Works on CUDA (NVIDIA), MPS (Apple Silicon), and CPU
 - **Easy integration** with Python
-- **Community support** and active development
-- **Flexible**: Supports emotion control through prosody modifications
+- **23 languages** supported
 
 ---
 
@@ -500,4 +584,3 @@ For questions or support, please open an issue on GitHub.
 ---
 
 Made with ❤️ for documentary narration
-

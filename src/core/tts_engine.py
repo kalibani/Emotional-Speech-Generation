@@ -5,6 +5,7 @@ import numpy as np
 
 from src.models.base import BaseTTSModel
 from src.models.coqui import CoquiTTSModel
+from src.models.chatterbox import ChatterboxModel
 from config.settings import Settings
 
 
@@ -25,7 +26,7 @@ class TTSEngine:
         """Initialize the TTS model based on settings."""
         model_map = {
             "coqui": CoquiTTSModel,
-            # "chatterbox": ChatterboxModel,  # Implement when available
+            "chatterbox": ChatterboxModel,
             # "bark": BarkModel,  # Implement when available
         }
 
