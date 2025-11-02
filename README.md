@@ -13,7 +13,7 @@
 - ✅ **6 Emotional Styles**: neutral, excited, sad, serious, empathetic, urgent
 - ✅ **Intensity Control**: Fine-tune emotion strength (0.0-1.0)
 - ✅ **Production-Ready API**: FastAPI with OpenAPI docs
-- ✅ **CLI Tool**: Simple command-line interface (Part B requirement)
+- ✅ **CLI Tool**: Simple command-line interface
 - ✅ **High-Quality Output**: 24kHz audio with professional processing
 - ✅ **Docker Support**: Easy deployment with Docker/Docker Compose
 - ✅ **Comprehensive Tests**: Unit, integration, and API tests
@@ -126,7 +126,7 @@ python scripts/solution.py "Hello world" output.wav
 
 ## 💻 Usage
 
-### **CLI Usage (Part B)**
+### **CLI Usage**
 
 #### **Basic Synthesis**
 
@@ -256,7 +256,7 @@ POST /v1/speech/synthesize
     "emotion_applied": "excited",
     "intensity": 0.7,
     "processing_time_ms": 1247,
-    "model": "coqui"
+    "model": "chatterbox"
   },
   "expires_at": "2025-10-31T12:00:00Z"
 }
@@ -288,7 +288,7 @@ POST /v1/speech/synthesize
 │  └─────────────┘  └──────┬──────┘  └─────────────┘      │
 │                           │                               │
 │                  ┌────────┴────────┐                     │
-│                  │  Coqui TTS      │                     │
+│                  │  Chatterbox TTS      │                     │
 │                  │  Model          │                     │
 │                  └─────────────────┘                     │
 └───────────────────────────────────────────────────────────┘
@@ -315,7 +315,7 @@ emotional-speech-generation/
 │   └── utils/            # Utilities
 ├── config/               # Configuration files
 ├── scripts/              # CLI and setup scripts
-│   └── solution.py       # Part B CLI solution
+│   └── solution.py       # Solution
 ├── tests/                # Test suite
 ├── docs/                 # Documentation
 └── data/                 # Models and audio cache
@@ -337,7 +337,7 @@ APP_NAME="Emotional Speech Generation API"
 DEBUG=false
 
 # TTS Model
-MODEL_NAME=coqui          # coqui, chatterbox, bark
+MODEL_NAME=chatterbox          # coqui, chatterbox, bark
 DEVICE=cpu                # cpu, cuda, mps
 MODEL_CACHE_DIR=data/models
 
@@ -501,9 +501,9 @@ pip install -r requirements.txt
 
 ---
 
-## 🎯 Part B - CLI Solution
+## 🎯 CLI Solution
 
-The CLI solution (`scripts/solution.py`) fulfills all Part B requirements:
+The CLI solution (`scripts/solution.py`) requirements:
 
 ✅ **Required Functionality:**
 
@@ -567,7 +567,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **Coqui TTS** for the excellent open-source TTS framework
+- **Chatterbox TTS** for the excellent open-source TTS framework
 - **FastAPI** for the modern web framework
 - **The open-source community** for making this possible
 
@@ -579,4 +579,4 @@ For questions or support, please open an issue on GitHub.
 
 ---
 
-Made with ❤️ for documentary narration
+Made with ❤️ by [Kautzar Alibani](mailto:kalibani.ka@gmail.com) for documentary narration
