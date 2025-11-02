@@ -37,7 +37,7 @@
 
 ## 🚀 Quick Start
 
-### **Option 1: CLI (Part B Solution)** - Recommended
+### **Option 1: CLI** - Recommended
 
 ```bash
 # 1. Create virtual environment (recommended to avoid conflicts)
