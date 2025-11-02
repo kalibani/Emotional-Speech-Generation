@@ -170,7 +170,7 @@ For non-technical users:
 ### API (Also Implemented)
 
 ```bash
-curl -X POST http://localhost:8000/v1/synthesize \
+curl -X POST http://localhost:8000/v1/speech/synthesize \
   -H "Content-Type: application/json" \
   -d '{"text": "Hello", "emotion": "excited", "intensity": 0.8}'
 ```
@@ -193,7 +193,7 @@ Returns audio file URL for download.
 
 ### Challenge 2: Long-Form Consistency
 
-**Problem:** TTS models can't handle infinite text, so you process in chunks (~500 tokens). For a 10-min script, the voice starts drifting - pitch changes, energy varies. It's subtle but noticeable.
+**Problem:** TTS models can't handle infinite text, so I process in chunks (~500 tokens). For a 10-min script, the voice starts drifting - pitch changes, energy varies. It's subtle but noticeable.
 
 **How to fix:**
 
@@ -240,7 +240,5 @@ Returns audio file URL for download.
 - Could really use fine-tuning on real documentary audio
 - Edge cases still trip it up sometimes
 - Cost at scale needs optimization
-
-**Overall:** This shows you can build decent emotional TTS for documentaries using open-source tools. The hard parts (picking the right model, getting emotion control working) are done. The rest (long-form, web UI) is more straightforward engineering.
 
 ---
