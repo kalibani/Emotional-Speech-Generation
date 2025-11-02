@@ -110,8 +110,6 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 # Install all dependencies
 pip install -r requirements.txt
 
-# For development (includes testing tools)
-pip install -r requirements-dev.txt
 ```
 
 ### **Step 4: Run the CLI**
