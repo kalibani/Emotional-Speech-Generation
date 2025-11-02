@@ -520,14 +520,31 @@ The CLI (`scripts/solution.py`) requirements:
 - ✅ Help documentation (`--help`)
 - ✅ Progress indicators
 
-### **Why Chatterbox?**
+### **Why Chatterbox (Primary) with Coqui Fallback?**
 
+**Primary: Chatterbox**
 - **Best Quality**: Outperformed ElevenLabs in blind tests (63.8% preference)
 - **True Emotion Control**: Built-in emotion intensity via exaggeration parameter
 - **Open-source**: MIT licensed, production-ready
 - **Multi-device**: Works on CUDA (NVIDIA), MPS (Apple Silicon), and CPU
-- **Easy integration** with Python
-- **23 languages** supported
+
+**Fallback: Coqui TTS**
+- **Reliability**: Mature ecosystem, extensive documentation
+- **Lightweight**: Smaller model size, faster download
+- **Wide compatibility**: Works in all environments
+
+**Switching Models:**
+```bash
+# Use Chatterbox (default)
+python scripts/solution.py "text" output.wav
+
+# Use Coqui fallback
+export MODEL_NAME=coqui
+python scripts/solution.py "text" output.wav
+
+# Or in .env file
+echo "MODEL_NAME=coqui" >> .env
+```
 
 ---
 
