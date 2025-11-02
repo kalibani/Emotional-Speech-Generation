@@ -16,7 +16,7 @@ help:
 	@echo "  run-dev        - Run API server in dev mode"
 	@echo "  docker-build   - Build Docker image"
 	@echo "  docker-run     - Run Docker container"
-	@echo "  solution       - Run Part B CLI solution"
+	@echo "  solution       - Run CLI solution"
 
 setup:
 	@echo "Setting up project..."

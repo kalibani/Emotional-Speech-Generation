@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """
-Part B - CLI Solution for Emotional Speech Generation
+CLI for Emotional Speech Generation
 
 This script provides a command-line interface for generating emotional speech.
-It fulfills the requirements for Part B of the challenge.
 
 Usage:
     python solution.py "Hello world" output.wav
@@ -30,7 +29,7 @@ def parse_arguments() -> argparse.Namespace:
         Parsed arguments
     """
     parser = argparse.ArgumentParser(
-        description="Generate emotional speech from text (Part B - CLI Solution)",
+        description="Generate emotional speech from text",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

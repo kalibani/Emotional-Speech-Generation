@@ -501,9 +501,9 @@ pip install -r requirements.txt
 
 ---
 
-## 🎯 CLI Solution
+## 🎯 CLI
 
-The CLI solution (`scripts/solution.py`) requirements:
+The CLI (`scripts/solution.py`) requirements:
 
 ✅ **Required Functionality:**
 
