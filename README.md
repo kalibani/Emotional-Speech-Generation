@@ -4,9 +4,7 @@
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104+-green.svg)](https://fastapi.tiangolo.com)
 
-**Production-ready emotional text-to-speech system for documentary-style narration.**
-
-Think of it as: _"Suno AI, but instead of songs it produces natural, emotionally expressive narration."_
+**Emotional text-to-speech system for documentary-style narration.**
 
 ---
 
